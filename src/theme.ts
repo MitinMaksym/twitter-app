@@ -36,7 +36,8 @@ export const theme = createTheme({
         borderRadius: 30,
         textTransform: "none",
         fontSize: 16,
-        height: 40
+        height: 40,
+        fontWeight: 700
       },
       textPrimary: {
         paddingLeft: 20,
@@ -65,6 +66,7 @@ export const theme = createTheme({
         borderRadius: 15
       }
     },
+
     MuiDialogActions: {
       root: {
         marginBottom: 8

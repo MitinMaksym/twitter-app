@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import ReactDOM from 'react-dom'
+import { theme } from './theme'
+import App from './App'
+
+
+import "./index.css"
+import { MuiThemeProvider } from '@material-ui/core'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <MuiThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>,
+  </MuiThemeProvider>,
   document.getElementById('root')
-);
+)
 
 
