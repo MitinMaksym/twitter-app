@@ -1,15 +1,14 @@
 import ReactDOM from 'react-dom'
 import { theme } from './theme'
 import App from './App'
+import { ThemeProvider } from '@mui/material/styles'
 
-
-import "./index.css"
-import { MuiThemeProvider } from '@material-ui/core'
+import "./index.scss"
 
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
     <App />
-  </MuiThemeProvider>,
+  </ThemeProvider>,
   document.getElementById('root')
 )
 
