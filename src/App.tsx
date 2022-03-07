@@ -1,12 +1,11 @@
-import { Button } from '@material-ui/core'
-import './App.css';
+import { AuthPage } from './pages/AuthPage'
 
 function App() {
   return (
-    <div className="App">
-      <Button>Test</Button>
+    <div className="app">
+      <AuthPage />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
