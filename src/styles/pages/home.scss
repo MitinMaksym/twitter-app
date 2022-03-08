@@ -1,0 +1,35 @@
+.home-page {
+  .tweet-input {
+    &__body {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .new-tweet {
+    padding: 15px;
+
+    &__body {
+      display: flex;
+      align-items: center;
+    }
+
+    &__avatar {
+      flex: 0 0 10%;
+    }
+
+    &__text-area {
+      flex: 0 0 90%;
+      padding: 10px;
+
+      &::placeholder {
+        color: $lightgray;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.tweet {
+  padding: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(238, 240, 241);
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  &__avatar {
+    flex: 0 0 10%;
+  }
+
+  &__body {
+    flex: 0 0 90%;
+  }
+
+  &__nickname {
+    color: $lightgray;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    & > button:hover {
+      color: #1da1fa;
+    }
+
+    .MuiSvgIcon-root {
+      font-size: 18px;
+    }
+  }
+
+  &__count {
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 5px;
+  }
+}

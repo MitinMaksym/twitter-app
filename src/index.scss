@@ -31,5 +31,9 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+iframe {
+  pointer-events: none;
+}
+@import "./styles/variables.scss";
 
 @import "./styles/index.scss";

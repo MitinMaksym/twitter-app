@@ -1,0 +1,14 @@
+.sidebar {
+  .MuiMenuItem-root {
+    margin-bottom: 5px;
+  }
+  .MuiMenuItem-root:hover {
+    background-color: rgb(238, 240, 241);
+    border-radius: 50px;
+  }
+
+  .MuiListItemIcon-root {
+    color: $black;
+    margin-right: 10px;
+  }
+}
