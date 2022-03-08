@@ -98,5 +98,14 @@ export const theme = createTheme({
         },
       },
     },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          "&.Mui-selected": {
+            color: "rgb(29,161,242)",
+          },
+        },
+      },
+    },
   },
 });
