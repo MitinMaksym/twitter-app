@@ -1,5 +1,4 @@
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
+
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -12,16 +11,12 @@ import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlin
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import SearchIcon from "@mui/icons-material/Search";
 import { Box, Button } from "@mui/material";
 
-type SideBarProps = {}
+type SideMenuProps = {}
 
-export const SideBar = (props: SideBarProps) => {
-    return <MenuList className="sidebar">
+export const SideMenu = (props: SideMenuProps) => {
+    return <><MenuList className="sidemenu">
         <MenuItem >
             <ListItemIcon>
                 <TwitterIcon fontSize="medium" color="primary" />
@@ -30,7 +25,7 @@ export const SideBar = (props: SideBarProps) => {
         <MenuItem selected>
             <ListItemIcon>
                 <HomeOutlinedIcon
-                    className="home-page__menu-icon"
+                    className="sidemenu__menu-icon"
 
                     fontSize="medium"
                     color="primary"
@@ -86,15 +81,16 @@ export const SideBar = (props: SideBarProps) => {
         <MenuItem>
             <ListItemIcon>
                 <PermIdentityOutlinedIcon
-
                     fontSize="medium"
                 />
             </ListItemIcon>
             <Typography variant="h6">Главная</Typography>
         </MenuItem>
-        <Box marginTop="20px">
-            <Button variant="contained" fullWidth color="primary">Твитнуть</Button>
-        </Box>
     </MenuList>
+
+        <Button className="sidemenu__tweet-btn" variant="contained" color="primary" onClick={() => {
+
+        }}>Твитнуть</Button>
+    </>
 
 }

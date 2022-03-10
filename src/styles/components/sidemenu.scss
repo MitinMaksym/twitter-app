@@ -1,7 +1,12 @@
-.sidebar {
-  .MuiMenuItem-root {
-    margin-bottom: 5px;
+.sidemenu {
+  &__tweet-btn {
+    width: 70%;
   }
+
+  & .MuiMenuItem-root:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
   .MuiMenuItem-root:hover {
     background-color: rgb(238, 240, 241);
     border-radius: 50px;
@@ -9,6 +14,6 @@
 
   .MuiListItemIcon-root {
     color: $black;
-    margin-right: 10px;
+    margin-right: 5px;
   }
 }

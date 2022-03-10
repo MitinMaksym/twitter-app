@@ -7,25 +7,34 @@ import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import { Tweet } from "../components/common/Tweet";
 import { Box } from "@mui/material";
-import { SideBar } from "../components/common/SideBar";
-import { NewTweetArea } from "../components/common/NewTweetArea";
+import { SideMenu } from "../components/common/SideMenu";
+import { NewTweetForm } from "../components/common/AddTweetForm";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTweets, Tweet as TweetType } from "../redux/ducks/tweets/tweetsSlice";
+import { selectTweets } from "../redux/ducks/tweets/selectors"
 
 
 export const Home = () => {
+    const tweets: TweetType[] = useSelector(selectTweets)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchTweets())
+    }, [dispatch])
     return (
         <>
             <Container maxWidth="lg">
                 <Grid container padding={2} className="home-page">
                     <Grid item xs={3}>
-                        <SideBar />
+                        <SideMenu />
                     </Grid>
                     <Grid item xs={6} padding="0px 10px">
                         <Box padding={2}>
                             <Typography variant="h6">Главная</Typography>
                         </Box>
-                        <NewTweetArea />
-                        <Tweet author="Maks" text="Text text" />
-                        <Tweet author="Maks" text="Text text" />
+                        <NewTweetForm />
+                        {tweets.map(tweet => (<Tweet author={tweet.fullName} text={tweet.text} />))}
                     </Grid>
                     <Grid item xs={3}>
                         <FormControl variant="standard" fullWidth className="home-page__search">
