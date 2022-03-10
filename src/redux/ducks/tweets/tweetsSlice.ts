@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Tweet = {
   text: string;
@@ -8,22 +8,30 @@ export type Tweet = {
 
 type InitialState = {
   items: Tweet[];
+  loading: boolean;
 };
 
 const initialState = {
   items: [],
+  loading: false,
 } as InitialState;
 
 const tweetsSlice = createSlice({
   name: "tweets",
   initialState,
   reducers: {
-    getTweets(state, action: PayloadAction<Tweet[]>) {
+    fetchTweets(state) {
+      state.loading = true;
+    },
+    setTweets(state, action: PayloadAction<Tweet[]>) {
       state.items = action.payload;
+    },
+    setLoading(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { getTweets } = tweetsSlice.actions;
+export const { fetchTweets, setTweets, setLoading } = tweetsSlice.actions;
 
 export default tweetsSlice.reducer;

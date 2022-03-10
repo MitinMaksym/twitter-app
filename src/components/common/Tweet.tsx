@@ -14,7 +14,7 @@ type TweetProps = {
 export const Tweet = (props: TweetProps) => {
     const { author, text } = props;
     return (
-        <Paper className="tweet" elevation={0}>
+        <Paper className="tweet" elevation={3}>
             <div className="tweet__wrapper">
                 <div className="tweet__avatar">
                     <Avatar
