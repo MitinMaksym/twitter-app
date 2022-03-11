@@ -11,7 +11,7 @@ import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlin
 import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 
 type SideMenuProps = {}
 
@@ -31,7 +31,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     color="primary"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Главная</Typography>
+            <Typography variant="h6" fontSize={22}>Главная</Typography>
         </MenuItem>
         <MenuItem >
             <ListItemIcon>
@@ -40,7 +40,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Поиск</Typography>
+            <Typography variant="h6" fontSize={22}>Поиск</Typography>
         </MenuItem>
         <MenuItem >
             <ListItemIcon>
@@ -49,7 +49,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6"> Уведомления</Typography>
+            <Typography variant="h6" fontSize={22}> Уведомления</Typography>
         </MenuItem>
         <MenuItem >
             <ListItemIcon>
@@ -58,7 +58,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Главная</Typography>
+            <Typography variant="h6" fontSize={22}>Главная</Typography>
         </MenuItem>
         <MenuItem >
             <ListItemIcon>
@@ -67,7 +67,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Главная</Typography>
+            <Typography variant="h6" fontSize={22}>Главная</Typography>
         </MenuItem>
         <MenuItem >
             <ListItemIcon>
@@ -76,7 +76,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Главная</Typography>
+            <Typography variant="h6" fontSize={22}>Главная</Typography>
         </MenuItem>
         <MenuItem>
             <ListItemIcon>
@@ -84,7 +84,7 @@ export const SideMenu = (props: SideMenuProps) => {
                     fontSize="medium"
                 />
             </ListItemIcon>
-            <Typography variant="h6">Главная</Typography>
+            <Typography variant="h6" fontSize={22}>Главная</Typography>
         </MenuItem>
     </MenuList>
 

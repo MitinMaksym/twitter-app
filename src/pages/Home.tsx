@@ -6,22 +6,34 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import { Tweet } from "../components/common/Tweet";
-import { Box } from "@mui/material";
+import {
+    Box,
+    List,
+
+} from "@mui/material";
 import { SideMenu } from "../components/common/SideMenu";
 import { NewTweetForm } from "../components/common/AddTweetForm";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTweets, Tweet as TweetType } from "../redux/ducks/tweets/tweetsSlice";
-import { selectTweets } from "../redux/ducks/tweets/selectors"
-
+import {
+    fetchTweets,
+    Tweet as TweetType,
+} from "../redux/ducks/tweets/tweetsSlice";
+import { selectTweets } from "../redux/ducks/tweets/selectors";
+import { Tag } from "../components/common/Tag";
+import { fetchTags, Tag as TagType } from "../redux/ducks/tags/tagsSlice";
+import { selectTags } from "../redux/ducks/tags/selectors";
 
 export const Home = () => {
-    const tweets: TweetType[] = useSelector(selectTweets)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
+    const tweets: TweetType[] = useSelector(selectTweets);
+    const tags: TagType[] = useSelector(selectTags)
 
     useEffect(() => {
-        dispatch(fetchTweets())
-    }, [dispatch])
+        dispatch(fetchTweets());
+        dispatch(fetchTags())
+    }, [dispatch]);
     return (
         <>
             <Container maxWidth="lg">
@@ -34,10 +46,16 @@ export const Home = () => {
                             <Typography variant="h6">Главная</Typography>
                         </Box>
                         <NewTweetForm />
-                        {tweets.map(tweet => (<Tweet author={tweet.fullName} text={tweet.text} />))}
+                        {tweets.map((tweet) => (
+                            <Tweet author={tweet.fullName} text={tweet.text} />
+                        ))}
                     </Grid>
                     <Grid item xs={3}>
-                        <FormControl variant="standard" fullWidth className="home-page__search">
+                        <FormControl
+                            variant="standard"
+                            fullWidth
+                            className="home-page__search"
+                        >
                             <Input
                                 id="input-with-icon-adornment"
                                 startAdornment={
@@ -54,6 +72,12 @@ export const Home = () => {
                                 }}
                             />
                         </FormControl>
+                        <List
+                            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+                        >
+                            {tags.map(({ tagTitle, tweetsCount }) => <Tag tagTitle={tagTitle} tweetsCount={tweetsCount} />)}
+
+                        </List>
                     </Grid>
                 </Grid>
             </Container>
