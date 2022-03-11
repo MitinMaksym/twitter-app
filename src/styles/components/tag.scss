@@ -1,0 +1,15 @@
+.tag {
+  cursor: pointer;
+  &:hover {
+    background-color: $lightblue;
+  }
+
+  &__title {
+    font-size: 15px;
+    color: #0f1419;
+  }
+
+  &__tweets-count {
+    color: #536471;
+  }
+}

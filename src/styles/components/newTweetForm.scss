@@ -1,0 +1,43 @@
+.new-tweet-form {
+  padding: 15px;
+
+  &__body {
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .MuiCircularProgress-root {
+      margin-right: 10px;
+    }
+  }
+
+  &__avatar {
+    flex: 0 0 10%;
+    align-self: flex-start;
+  }
+
+  &__text-area {
+    flex: 0 0 90%;
+    padding: 10px;
+
+    textarea {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+      &::placeholder {
+        color: $lightgray;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
