@@ -6,11 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import { Tweet } from "../components/common/Tweet";
-import {
-    Box,
-    List,
-
-} from "@mui/material";
+import { Box, List } from "@mui/material";
 import { SideMenu } from "../components/common/SideMenu";
 import { NewTweetForm } from "../components/common/AddTweetForm";
 import { useEffect } from "react";
@@ -23,16 +19,19 @@ import { selectTweets } from "../redux/ducks/tweets/selectors";
 import { Tag } from "../components/common/Tag";
 import { fetchTags, Tag as TagType } from "../redux/ducks/tags/tagsSlice";
 import { selectTags } from "../redux/ducks/tags/selectors";
+import { Route, Routes } from "react-router-dom";
+import { TweetDetails } from "../components/common/TweetDetails";
+import { MainHeader } from "../components/common/MainHeader";
 
 export const Home = () => {
     const dispatch = useDispatch();
 
     const tweets: TweetType[] = useSelector(selectTweets);
-    const tags: TagType[] = useSelector(selectTags)
+    const tags: TagType[] = useSelector(selectTags);
 
     useEffect(() => {
         dispatch(fetchTweets());
-        dispatch(fetchTags())
+        dispatch(fetchTags());
     }, [dispatch]);
     return (
         <>
@@ -42,13 +41,25 @@ export const Home = () => {
                         <SideMenu />
                     </Grid>
                     <Grid item xs={6} padding="0px 10px">
-                        <Box padding={2}>
-                            <Typography variant="h6">Главная</Typography>
-                        </Box>
-                        <NewTweetForm />
-                        {tweets.map((tweet) => (
-                            <Tweet author={tweet.fullName} text={tweet.text} />
-                        ))}
+                        <MainHeader />
+                        <Routes>
+                            {["/", "search"].map((path) => (
+                                <Route path={path} element={<NewTweetForm />} />
+                            ))}
+                        </Routes>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                    <>
+                                        {tweets.map((tweet) => (
+                                            <Tweet key={tweet.fullName} {...tweet} />
+                                        ))}
+                                    </>
+                                }
+                            />
+                            <Route path="tweets/:id" element={<TweetDetails />} />
+                        </Routes>
                     </Grid>
                     <Grid item xs={3}>
                         <FormControl
@@ -75,8 +86,13 @@ export const Home = () => {
                         <List
                             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
                         >
-                            {tags.map(({ tagTitle, tweetsCount }) => <Tag tagTitle={tagTitle} tweetsCount={tweetsCount} />)}
-
+                            {tags.map(({ tagTitle, tweetsCount }) => (
+                                <Tag
+                                    key={tweetsCount}
+                                    tagTitle={tagTitle}
+                                    tweetsCount={tweetsCount}
+                                />
+                            ))}
                         </List>
                     </Grid>
                 </Grid>

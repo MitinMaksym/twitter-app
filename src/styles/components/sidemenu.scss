@@ -1,4 +1,18 @@
 .sidemenu {
+  &__logo {
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    margin-bottom: 10px;
+
+    &:hover {
+      background-color: $lightblue;
+    }
+  }
   &__tweet-btn {
     width: 70%;
   }
