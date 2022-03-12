@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Tweet = {
+  id: string;
   text: string;
   fullName: string;
   avatarUrl: string;
