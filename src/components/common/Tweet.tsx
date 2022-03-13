@@ -5,18 +5,17 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import { Link } from 'react-router-dom'
+import { Tweet as TweetType } from "../../redux/ducks/tweets/tweetsSlice";
 
 
 type TweetProps = {
-    id: string;
-    fullName: string;
-    text: string;
+    tweet: TweetType
 };
 
 export const Tweet = (props: TweetProps) => {
-    const { id, fullName, text } = props;
+    const { _id, user, text } = props.tweet;
     return (
-        <Link to={`/home/tweets/${id}`}>
+        <Link to={`/home/tweets/${_id}`}>
             <Paper className="tweet" elevation={3}>
                 <div className="tweet__wrapper">
                     <div className="tweet__avatar">
@@ -28,7 +27,7 @@ export const Tweet = (props: TweetProps) => {
                     <div className="tweet__body">
                         <Box sx={{ display: "flex" }}>
                             <Typography variant="subtitle2">
-                                {fullName}
+                                {user.username}
                             </Typography>
                             <Typography variant="subtitle2" marginLeft="5px" className="tweet__nickname">@Brie</Typography>
                         </Box>

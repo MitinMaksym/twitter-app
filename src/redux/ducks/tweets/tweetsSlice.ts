@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { User } from "../../../types";
 
 export type Tweet = {
-  id: string;
+  _id: string;
   text: string;
-  fullName: string;
-  avatarUrl: string;
+  user: User;
 };
 
 type InitialState = {

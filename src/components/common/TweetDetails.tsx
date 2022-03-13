@@ -8,9 +8,9 @@ type TweetsDetailsProps = {}
 export const TweetDetails = (props: TweetsDetailsProps) => {
     const { id } = useParams()
     const tweets = useSelector(selectTweets)
-    const currentTweet = tweets.find(tweet => tweet.id === id)
+    const currentTweet = tweets.find(tweet => tweet._id === id)
 
 
-    return currentTweet ? <Tweet {...currentTweet} /> : null
+    return currentTweet ? <Tweet tweet={currentTweet} /> : null
 
 }

@@ -4,8 +4,8 @@ import { fetchTweets, setLoading, setTweets, Tweet } from "./tweetsSlice";
 
 export function* fetchTweetsRequest() {
   try {
-    const items: Tweet[] = yield call(tweetsApi.fetchTweets);
-    yield put(setTweets(items));
+    const data: Tweet[] = yield call(tweetsApi.fetchTweets);
+    yield put(setTweets(data));
     yield put(setLoading(false));
   } catch (err) {
     yield put(setLoading(false));
