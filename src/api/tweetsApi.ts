@@ -1,24 +1,12 @@
 import { Tweet } from "../redux/ducks/tweets/tweetsSlice";
+import { ApiResponseType, instance } from "./apiConfig";
 
 export const tweetsApi = {
   fetchTweets() {
-    const mockData = [
-      {
-        id: "123",
-        text: "Test",
-        fullName: "Will Smith",
-        avatarUrl: "https://mui.com/static/images/avatar/1.jpg",
-      },
-      {
-        id: "1234",
-        text: "Test",
-        fullName: "Will Smith",
-        avatarUrl: "https://mui.com/static/images/avatar/1.jpg",
-      },
-    ] as Tweet[];
-
-    return new Promise<Tweet[]>((resolve) => {
-      resolve(mockData);
-    });
+    return instance
+      .get<ApiResponseType<{ tweets: Tweet[] }>>("tweets")
+      .then(({ data }) => {
+        return data.data.tweets;
+      });
   },
 };

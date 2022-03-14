@@ -53,7 +53,7 @@ export const Home = () => {
                                 element={
                                     <>
                                         {tweets.map((tweet) => (
-                                            <Tweet key={tweet.fullName} {...tweet} />
+                                            <Tweet key={tweet._id} tweet={tweet} />
                                         ))}
                                     </>
                                 }
