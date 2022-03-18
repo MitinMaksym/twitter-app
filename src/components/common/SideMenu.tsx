@@ -12,6 +12,7 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom'
+import { LogOut } from "../auth/LogOut";
 
 type SideMenuProps = {};
 
@@ -93,6 +94,7 @@ export const SideMenu = (props: SideMenuProps) => {
             >
                 Твитнуть
             </Button>
+            <LogOut />
         </div>
     );
 };
