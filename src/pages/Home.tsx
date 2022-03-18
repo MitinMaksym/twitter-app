@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import { Tweet } from "../components/common/Tweet";
-import { Box, List } from "@mui/material";
+import { List } from "@mui/material";
 import { SideMenu } from "../components/common/SideMenu";
 import { NewTweetForm } from "../components/common/AddTweetForm";
 import { useEffect } from "react";

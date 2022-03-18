@@ -5,7 +5,11 @@ import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 import { useState } from "react"
 import { SignInModal } from "../components/auth/SignInModal"
 import { SignUpModal } from "../components/auth/SignUpModal"
-import { Button, Typography } from '@mui/material';
+import { Button, CircularProgress, Typography } from '@mui/material';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAuthenticated, selectLoading } from '../redux/ducks/auth/selectors';
+import { Box } from '@mui/system';
 
 enum AuthModalType {
   SignIn = "signIn",
@@ -15,6 +19,10 @@ export const AuthPage = () => {
   const defaultModalState = { signIn: false, signUp: false }
 
   const [modalOpen, setModalOpen] = useState(defaultModalState)
+  const isAuthenticated = useSelector(selectAuthenticated)
+  const loading = useSelector(selectLoading)
+
+  let location = useLocation();
 
   const handleModalOpen = (modal: AuthModalType) => {
     setModalOpen({ ...defaultModalState, [modal]: true })
@@ -22,6 +30,10 @@ export const AuthPage = () => {
 
   const handleClose = () => {
     setModalOpen(defaultModalState)
+  }
+
+  if (isAuthenticated) {
+    return <Navigate to="/home" state={{ from: location }} />;
   }
 
   return (
@@ -47,7 +59,7 @@ export const AuthPage = () => {
             <Button variant="contained" fullWidth color="primary" onClick={() => handleModalOpen(AuthModalType.SignIn)}>Войти</Button></div>
 
         </div>
-        <SignInModal open={modalOpen.signIn} onClose={handleClose} onSubmit={() => { }} />
+        <SignInModal open={modalOpen.signIn} loading={loading} onClose={handleClose} onSubmit={() => { }} />
         <SignUpModal open={modalOpen.signUp} onClose={handleClose} onSubmit={() => { }} />
       </div>
 
