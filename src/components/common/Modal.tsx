@@ -5,7 +5,6 @@ type ModalProps = {
   open: boolean
   children: React.ReactNode,
   width?: Breakpoint
-  onSubmit: () => void
   onClose: () => void
 }
 

@@ -7,6 +7,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import "./index.scss";
 import store from "./redux/store";
+import setupAxios, { $api } from "./api/apiConfig";
+
+setupAxios($api, store)
 
 ReactDOM.render(
   <Provider store={store}>

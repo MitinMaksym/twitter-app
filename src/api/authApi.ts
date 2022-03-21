@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { UserLoginCredentials } from '../components/auth/SignInModal'
 import { User } from '../types'
-import { ApiResponseType, instance } from './apiConfig'
+import { ApiResponseType, $api } from './apiConfig'
 
 export type AuthResponse = {
   token: string
@@ -18,13 +18,13 @@ export const authApi = {
   },
 
   async login(payload: UserLoginCredentials):Promise<AuthResponse> {
-    const res = await instance
+    const res = await $api
       .post<ApiResponseType<AuthResponse>>(`${process.env.REACT_APP_API_URL}/users/login`, { ...payload })
       return res.data.data
   },
   
   async logout():Promise<null> {
-    const res = await instance
+    const res = await $api
       .post<ApiResponseType<null>>('users/logout')
       return res.data.data
   }
