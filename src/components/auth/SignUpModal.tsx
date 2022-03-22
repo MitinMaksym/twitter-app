@@ -9,7 +9,7 @@ type SignUpModalProps = {
 }
 export const SignUpModal = (props: SignUpModalProps) => {
     const { open, onClose } = props
-    return <Modal title="Войти в аккаунт" open={open} onClose={onClose} onSubmit={() => { }}>
+    return <Modal title="Войти в аккаунт" open={open} onClose={onClose}>
         <Box
             component="form"
             sx={{

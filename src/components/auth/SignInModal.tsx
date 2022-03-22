@@ -31,7 +31,7 @@ export const SignInModal = (props: SignInModalProps) => {
         dispatch(login({ email, password }))
     }
 
-    return <Modal title="Войти в аккаунт" open={open} onClose={onClose} onSubmit={() => { }}>
+    return <Modal title="Войти в аккаунт" open={open} onClose={onClose}>
 
         <Box
             component="form"
